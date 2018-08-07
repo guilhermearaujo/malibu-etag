@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0E2CCC04254E9C035E8D391C /* Pods_malibu_etag.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4DEA19B8DF8ABADFC42991C /* Pods_malibu_etag.framework */; };
 		7971E8EF2119E802003BA50E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7971E8EE2119E802003BA50E /* AppDelegate.swift */; };
 		7971E8F12119E802003BA50E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7971E8F02119E802003BA50E /* ViewController.swift */; };
 		7971E8F42119E802003BA50E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7971E8F22119E802003BA50E /* Main.storyboard */; };
@@ -22,6 +23,9 @@
 		7971E8F52119E804003BA50E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7971E8F82119E804003BA50E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7971E8FA2119E804003BA50E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A3D716FCF7EE3377CFB9D525 /* Pods-malibu-etag.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-malibu-etag.release.xcconfig"; path = "Pods/Target Support Files/Pods-malibu-etag/Pods-malibu-etag.release.xcconfig"; sourceTree = "<group>"; };
+		B352B35A553516E73B669DCF /* Pods-malibu-etag.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-malibu-etag.debug.xcconfig"; path = "Pods/Target Support Files/Pods-malibu-etag/Pods-malibu-etag.debug.xcconfig"; sourceTree = "<group>"; };
+		B4DEA19B8DF8ABADFC42991C /* Pods_malibu_etag.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_malibu_etag.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +33,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0E2CCC04254E9C035E8D391C /* Pods_malibu_etag.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +45,8 @@
 			children = (
 				7971E8ED2119E802003BA50E /* malibu-etag */,
 				7971E8EC2119E802003BA50E /* Products */,
+				EA810C053BA39B5EB3ABBCEC /* Pods */,
+				A0B5FCFAE78138A00528C0D0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -64,6 +71,23 @@
 			path = "malibu-etag";
 			sourceTree = "<group>";
 		};
+		A0B5FCFAE78138A00528C0D0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B4DEA19B8DF8ABADFC42991C /* Pods_malibu_etag.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EA810C053BA39B5EB3ABBCEC /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B352B35A553516E73B669DCF /* Pods-malibu-etag.debug.xcconfig */,
+				A3D716FCF7EE3377CFB9D525 /* Pods-malibu-etag.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -71,9 +95,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7971E8FD2119E804003BA50E /* Build configuration list for PBXNativeTarget "malibu-etag" */;
 			buildPhases = (
+				7BF40C8D3B3BC5473A1F4EA0 /* [CP] Check Pods Manifest.lock */,
 				7971E8E72119E802003BA50E /* Sources */,
 				7971E8E82119E802003BA50E /* Frameworks */,
 				7971E8E92119E802003BA50E /* Resources */,
+				A25D0ED382AA67D7D3B7CFC3 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -129,6 +155,47 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		7BF40C8D3B3BC5473A1F4EA0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-malibu-etag-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A25D0ED382AA67D7D3B7CFC3 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-malibu-etag/Pods-malibu-etag-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Malibu/Malibu.framework",
+				"${BUILT_PRODUCTS_DIR}/When/When.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Malibu.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/When.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-malibu-etag/Pods-malibu-etag-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		7971E8E72119E802003BA50E /* Sources */ = {
@@ -278,6 +345,7 @@
 		};
 		7971E8FE2119E804003BA50E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B352B35A553516E73B669DCF /* Pods-malibu-etag.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -295,6 +363,7 @@
 		};
 		7971E8FF2119E804003BA50E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A3D716FCF7EE3377CFB9D525 /* Pods-malibu-etag.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

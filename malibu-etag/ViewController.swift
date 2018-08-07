@@ -7,19 +7,47 @@
 //
 
 import UIKit
+import Malibu
+import When
+
+enum Api: RequestConvertible {
+  case course
+
+  static var baseUrl: URLStringConvertible? = "http://127.0.0.1:3000"
+  static var headers: [String: String] = [
+    "Accept": "application/json",
+    "Provider": "iOS",
+    "X-App-Name": "iOS Client"
+  ]
+
+  var request: Request {
+    switch self {
+    case .course:
+      return Request.get("/endpoint")
+    }
+  }
+}
 
 class ViewController: UIViewController {
+  let networking = Networking<Api>()
 
-  override func viewDidLoad() {
-    super.viewDidLoad()
-    // Do any additional setup after loading the view, typically from a nib.
+  @IBAction func sendRequest(_ sender: UIButton) {
+    // This should clear the cache before making a new request
+    Malibu.clearStorages()
+    
+    // However, the server will always receive the request with the 'If-None-Match' header
+
+    networking
+      .request(.course)
+      .toJsonDictionary()
+      .done {
+        print("done")
+        print($0)
+      }
+      .fail {
+        print("fail")
+        print($0)
+      }
   }
-
-  override func didReceiveMemoryWarning() {
-    super.didReceiveMemoryWarning()
-    // Dispose of any resources that can be recreated.
-  }
-
-
 }
 

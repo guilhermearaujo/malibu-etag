@@ -1,0 +1,22 @@
+PODS:
+  - Malibu (6.4.1):
+    - When (~> 3.0)
+  - When (3.0.3):
+    - When/Core (= 3.0.3)
+  - When/Core (3.0.3)
+
+DEPENDENCIES:
+  - Malibu
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Malibu
+    - When
+
+SPEC CHECKSUMS:
+  Malibu: 9ccf784eaafdaf930743b592bd7b3e3f5b2e6ebc
+  When: 4ff08e016ff5b70ad7fcfdc2b7de0825b60b3ec6
+
+PODFILE CHECKSUM: a2c0f6d2e77ddb9e9169d532466b40c8d85da8ec
+
+COCOAPODS: 1.5.3
