@@ -23,7 +23,7 @@ enum Api: RequestConvertible {
   var request: Request {
     switch self {
     case .course:
-      return Request.get("/endpoint")
+      return Request.get("/endpoint", cachePolicy: .reloadIgnoringLocalCacheData)
     }
   }
 }
@@ -32,10 +32,9 @@ class ViewController: UIViewController {
   let networking = Networking<Api>()
 
   @IBAction func sendRequest(_ sender: UIButton) {
-    // This should clear the cache before making a new request
-    Malibu.clearStorages()
-    
-    // However, the server will always receive the request with the 'If-None-Match' header
+    // The cache is cleared only at app start.
+    // The first request won't contain the ETag and will be successful.
+    // The next requests will contain the ETag, but will fail with "noDataInResponse"
 
     networking
       .request(.course)
