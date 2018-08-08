@@ -29,13 +29,21 @@ enum Api: RequestConvertible {
 }
 
 class ViewController: UIViewController {
-  let networking = Networking<Api>()
+  var networking: Networking<Api>!
+
+  override func viewDidLoad() {
+    super.viewDidLoad()
+
+    let configuration = URLSessionConfiguration.default.copy() as! URLSessionConfiguration
+    configuration.requestCachePolicy = .reloadIgnoringLocalCacheData
+    networking = Networking<Api>(sessionConfiguration: .custom(configuration))
+  }
 
   @IBAction func sendRequest(_ sender: UIButton) {
     // This should clear the cache before making a new request
     Malibu.clearStorages()
-    
-    // However, the server will always receive the request with the 'If-None-Match' header
+
+    // The server still always receives the request with the 'If-None-Match' header
 
     networking
       .request(.course)
